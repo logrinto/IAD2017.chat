@@ -8,10 +8,10 @@
 }
 
 .Menu--Open {
-  background-color: blue;
+  display: none !important;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 1300px) {
   .Menu {
     display: none;
   }

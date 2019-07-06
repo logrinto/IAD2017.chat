@@ -1,22 +1,149 @@
+@supports (-moz-appearance:none) {
+  .ConversationItem__AvatarImage {
+    margin-top: 1em;
+  }
+}
+
 .ConversationItem {
-  background-color: gray;
-  border-bottom: 1px solid black;
-  width: 100%;
-  display: block;
+  background-color: light-grey;
+  width: 95%;
+  height: 6em;
+  display: flex;
+  font-size: 1em;
+  position: relative;
+  border-radius: 20px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.ConversationItem:hover {
+  background-color: #ffff80;
+}
+
+.ConversationItem__Avatar {
+  padding: 1em;
+  height: 100%;
+  align-self: center;
+  margin-right: 10px;
+}
+
+.ConversationItem__AvatarImage {
+  border-radius: 50px;
+  height: 4em;
+  vertical-align: middle;
+}
+
+.ConversationItem__Infos {
+  height: 100%;
+  padding-top: 1em;
+}
+
+.ConversationItem__Name {
+  text-align: left;
+  margin-top: 1em
+}
+
+.ConversationItem__Name h3 {
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.ConversationItem__Time {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  font-size: 0.8em;
+}
+
+.ConversationItem__Preview p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 15em;
+  margin-top: -0.7em;
+  text-align: left;
 }
 
 .ConversationItem--active {
-  background-color: yellow;
+  background: linear-gradient(270deg, #ffff80, #ffff00);
+  background-size: 400% 200%;
+  -webkit-animation: AnimationName 10s ease infinite;
+  -moz-animation: AnimationName 10s ease infinite;
+  animation: AnimationName 10s ease infinite;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
-.ConversationItem__Writing {
-  width: 3rem;
-  height: 3rem;
-  background-color: pink;
+/* loading dots */
+.ConversationItem__Writing::after {
+  position: absolute;
+  top: 47px;
+  right: 30px;
+  font-size: 1.5em;
+  content: '.';
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
+    .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: white;
+    text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
+    .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: .25em 0 0 white,
+    .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%, 100% {
+    text-shadow: .25em 0 0 white,
+    .5em 0 0 white;
+  }
 }
 
 .ConversationItem__UnreadCount {
-  width: 3rem;
-  height: 3rem;
-  background-color: yellow;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  font-size: 0.8em;
+  height: 2em;
+  width: 2em;
+  background-color: #FF0000;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 2;
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .ConversationItem__Preview p {
+    max-width: 12em !important;
+}
 }

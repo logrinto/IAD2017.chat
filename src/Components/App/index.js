@@ -25,23 +25,23 @@ class App extends Component {
   render() {
     let { context } = this.props;
     return (
-      <div
-        className={`App App--beta App--Menu${
-          context.menuOpen ? "Open" : "Closed"
-        }`}
-      >
-        <div className="App__Menu">
-          <Menu open={context.menuOpen} />
-        </div>
-        <div className="App__Chat">
-          <div className="App__ConversationList">
-            <ConversationList />
+        <div
+            className={`App App--beta App--Menu${
+                context.menuOpen ? "Open" : "Closed"
+                }`}
+        >
+          <div className="App__Menu">
+            <Menu open={context.menuOpen} />
           </div>
-          <div className="App__Conversation">
-            <Conversation />
+          <div className="App__Chat">
+            <div className="App__ConversationList">
+              <ConversationList />
+            </div>
+            <div className="App__Conversation">
+              <Conversation />
+            </div>
           </div>
         </div>
-      </div>
     );
   }
 }

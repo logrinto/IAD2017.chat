@@ -1,0 +1,22 @@
+.ConversationHeader {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    height: 100%;
+    align-items: center;
+}
+
+.ConversationHeader__Avatar {
+    vertical-align: middle;
+    width: 5em;
+    padding: 20px;
+}
+
+.ConversationHeader__AvatarImage {
+    border-radius: 50px;
+    width: 5em;
+}
+
+.ConversationHeader__Status {
+    font-size: 0.8em;
+}

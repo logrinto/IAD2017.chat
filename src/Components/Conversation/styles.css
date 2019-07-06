@@ -1,36 +1,228 @@
-.Conversation {
-  background-color: lightgoldenrodyellow;
-  height: 100%;
+@font-face {
+  font-family: 'Lazer';
+  src: url('./fonts/Lazer84.ttf') format('ttf'),
+       url('./fonts/Lazer84.otf') format('otf'),
+       url('./fonts/Lazer84.woff') format('woff');
+}
 
+.Conversation {
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  position: relative;
 }
 
 .Conversation__Placeholder {
-  flex: 1 1 auto;
-  background-color: red;
+  font-family: 'Lazer', sans-serif;
+  font-size: 6vw;
+  letter-spacing: -2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-kerning: auto;
+}
+
+.Conversation__PlaceholderText {
+  background: linear-gradient(270deg, #ff66ff, #ffff00);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: AnimationName 10s ease infinite;
+  -moz-animation: AnimationName 10s ease infinite;
+  animation: AnimationName 10s ease infinite;
+  padding: 20px;
+}
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 .Conversation__PostItems {
   flex: 1 1 auto;
   overflow-y: auto;
+  padding-bottom: 1em;
 }
 
 .Conversation__Header {
-  height: 7rem;
+  height: 7em;
   flex: 0 0 auto;
-  background-color: pink;
+  margin-top: 1em;
+  align-self: center;
+  width: 97%;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  z-index: 15;
 }
 
 .Conversation__Form {
-  height: 5rem;
-  flex: 0 0 auto;
-  background-color: green;
+  margin: 2em 0 2em 0;
+  align-self: center;
+  width: 96%;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+}
+
+.Conversation__Form form {
+  display: flex;
+  height: 3.7em;
+  padding: 1em;
+}
+
+.Conversation__Write {
+  flex: 0 0 85%;
+  padding: 5px;
+  content: 'Schreib hier was…';
+
+}
+
+.Conversation__WriteTextarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  font-size: 1em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.Conversation__Send {
+  right: 15px;
+  top: 1em;
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 1em;
+  vertical-align: middle;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+}
+/*
+.Conversation__Send:hover {
+  background-color: var(--purple-light);
+}*/
+
+.Conversation__Send:after,
+.Conversation__Send:before {
+  padding: 18px 0 11px;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(-100% - 30px);
+  height: calc(100% - 29px);
+  width: calc(100% + 20px);
+  color: #fff;
+  border-radius: 2px;
+  transform: skew(-25deg);
+}
+
+.Conversation__Send:before {
+  background: #ffff00;
+  z-index: 5;
+  transition: left 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.Conversation__Send:after {
+  background: #fff;
+  transition: left 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0.2s;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.Conversation__Send:hover:before{
+  left: calc(0% - 10px);
+  transition: left 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.Conversation__Send:hover:after{
+  left: calc(0% - 10px);
+  transition: left 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+
+.Conversation__SendInput {
+  right: 5px;
+  z-index: 10;
+}
+
+.Conversation__Send:hover {
+  color: black;
+  transition: all 0.5s ease-out;
+}
+
+.Conversation__SendInput:hover {
+  color: black;
+  transition: all 0.5s ease-out;
 }
 
 .Conversation__Writing {
   width: 3rem;
   height: 3rem;
-  background-color: pink;
+  will-change: transform;
+  width: auto;
+  border-radius: 50px;
+  display: table;
+  margin: 0 auto;
+  position: relative;
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin: 0 1px;
+  background-color: #9E9EA1;
+  display: block;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: 1s blink infinite;
+  margin: 1em;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes bulge {
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 1000px) {
+  .Conversation__WriteTextarea{
+    width: 80%;
+  }
 }
